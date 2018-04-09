@@ -28,3 +28,6 @@ mkdir -p ${ZDOTDIR:-$HOME}/.zprezto/ >/dev/null 2>&1
 git clone git@github.com:laggardkernel/pipenv.git ${ZDOTDIR:-$HOME}/.zprezto/contrib/pipenv
 # enable 'pipenv' in `.zpreztorc`, put it before prezto module 'completion'
 ```
+
+## Authors
+- [laggardkernel](https://github.com/laggardkernel/pipenv)
