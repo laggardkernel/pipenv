@@ -1,5 +1,5 @@
 # Pipenv
-A Prezto module with features of pipenv support:
+A [Prezto](https://github.com/sorin-ionescu/prezto) module with features of pipenv support:
 - Enable virtual environment created by pipenv automatically when
     1. directory is changed
     2. a new shell window is opened
