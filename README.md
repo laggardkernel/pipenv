@@ -21,13 +21,25 @@ zstyle ':prezto:module:pipenv' auto-switch "no" # or "off"
 ```
 
 ## Installation
-### Prezto
+### [Prezto](https://github.com/sorin-ionescu/prezto)
 
 ```shell
 mkdir -p ${ZDOTDIR:-$HOME}/.zprezto/ >/dev/null 2>&1
 git clone git@github.com:laggardkernel/pipenv.git ${ZDOTDIR:-$HOME}/.zprezto/contrib/pipenv
 # enable 'pipenv' in `.zpreztorc`, put it before prezto module 'completion'
 ```
+
+### [Zplugin](https://github.com/zdharma/zplugin)
+Enabling command completion should be declared explicitly for zplugin. Zplugin doesn't load compdef files with name prefix `_` automatically.
+
+```shell
+# pipenv plugin with hook + compdef
+zstyle ':prezto:module:pipenv' completion "yes"
+zplugin ice pick"init.zsh"
+zplugin light https://github.com/laggardkernel/pipenv
+```
+
+Since the plugin uses `compdef` to define completion for `pipenv`, the configuration above should be put **before `compinit`** for zplugin.
 
 ### Additional Options
 Use `pipenv --venv` to detect the virtual environment **at startup only**, which could enable venv in the sub-folder of a project but more time consuming. It's recommended use this option with **Zplugin's Turbo Mode only**.
