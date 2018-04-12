@@ -11,7 +11,7 @@ Virtual environment auto switching could be completed with a hook using detectio
 
 Using `pipenv --venv` searches venv could be more powerful, but it takes too much time at the same time, because 1) it searches recursively to parent folders, 2) both `pipenv --venv` and `pipenv shell` tries to looks for a venv, cost doubles.
 
-I decide to choose the simple.
+I decide to choose the first method -- it's simple and fast.
 
 ## Settings
 Auto switch virtual environments is **enabled by default** once working directory is changed, new shell window is enable, and a subshell is spawned. Use the following to disable this feature:
@@ -21,7 +21,7 @@ zstyle ':prezto:module:pipenv' auto-switch "no" # or "off"
 ```
 
 ## Installation
-#### Prezto
+### Prezto
 
 ```shell
 mkdir -p ${ZDOTDIR:-$HOME}/.zprezto/ >/dev/null 2>&1
@@ -29,5 +29,22 @@ git clone git@github.com:laggardkernel/pipenv.git ${ZDOTDIR:-$HOME}/.zprezto/con
 # enable 'pipenv' in `.zpreztorc`, put it before prezto module 'completion'
 ```
 
+### Additional Options
+Use `pipenv --venv` to detect the virtual environment **at startup only**, which could enable venv in the sub-folder of a project but more time consuming. It's recommended use this option with **Zplugin's Turbo Mode only**.
+
+```shell
+zstyle ':prezto:module:pipenv' full-startup "yes" # or "on"
+```
+
+**Note**: `full-startup` is invalid if `auto-switch` is disabled.
+
+An option to explicitly enable completion suggestion of `pipenv` command. This is ONLY designed for other zsh plugin manager which is not compatible with prezto module.
+
+```shell
+# invalid for prezto
+zstyle -t ':prezto:module:pipenv' completion "yes"
+```
+
+##
 ## Authors
 - [laggardkernel](https://github.com/laggardkernel/pipenv)
