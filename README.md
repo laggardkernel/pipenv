@@ -50,11 +50,17 @@ atpull'!git reset --hard' atload"zpcompdef _pipenv pipenv"
 zplugin light https://github.com/laggardkernel/pipenv
 ```
 
-**Note**:
-- Use `zpcompdef` to declare completion
-- `zstyle -t ':prezto:module:pipenv' completion "yes"` is not needed in Turbo Mode
+**Notes** about turbo-loading completion:
+- Use `zpcompdef` to declare completion manually
+- `zstyle -t ':prezto:module:pipenv' completion "yes"` is not needed
 - `zpcompdef` must be used with and put before `zpcompinit` and `zpcdreplay`
 - More detail about turbo-loading completion is [here](https://github.com/zdharma/zplugin#calling-compinit)
+
+Update this plugin in zplugin with
+
+```shell
+zplg update laggardkernel/pipenv
+```
 
 ### Additional Options
 Use `pipenv --venv` to detect the virtual environment **at startup only**, which could enable venv in the sub-folder of a project but more time consuming. It's recommended use this option with **Zplugin's Turbo Mode only**.
