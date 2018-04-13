@@ -41,6 +41,20 @@ zplugin light https://github.com/laggardkernel/pipenv
 
 Since the plugin uses `compdef` to define completion for `pipenv`, the configuration above should be put **before `compinit`** for zplugin.
 
+Another configuration for zplugin that takes advantage of **Turbo Mode** in zplugin:
+
+```shell
+zstyle ':prezto:module:pipenv' full-startup "on"
+zplugin ice wait"0" pick"init.zsh" atload'zpcompdef _pipenv pipenv' lucid
+zplugin light https://github.com/laggardkernel/pipenv
+```
+
+**Note**:
+- Use `zpcompdef` to declare completion
+- `zstyle -t ':prezto:module:pipenv' completion "yes"` is not needed in Turbo Mode
+- `zpcompdef` must be used with and put before `zpcompinit` and `zpcdreplay`
+- More detail about turbo-loading completion is [here](https://github.com/zdharma/zplugin#calling-compinit)
+
 ### Additional Options
 Use `pipenv --venv` to detect the virtual environment **at startup only**, which could enable venv in the sub-folder of a project but more time consuming. It's recommended use this option with **Zplugin's Turbo Mode only**.
 

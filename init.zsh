@@ -34,12 +34,13 @@ if zstyle -T ':prezto:module:pipenv' auto-switch; then
   fi
 fi
 
+source "${0:h}/functions/_pipenv"
+
 # A switch to declare compdef of pipenv explicitly,
 # designed for those doesn't support modules for prezto
 if zstyle -t ':prezto:module:pipenv' completion "yes"; then
   # eval "$(pipenv --completion)"
   if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
-    source "${0:h}/functions/_pipenv"
     # autoload -U compinit && compinit
     compdef _pipenv pipenv
   fi
