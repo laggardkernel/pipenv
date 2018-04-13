@@ -45,7 +45,8 @@ Another configuration for zplugin that takes advantage of **Turbo Mode** in zplu
 
 ```shell
 zstyle ':prezto:module:pipenv' full-startup "on"
-zplugin ice wait"0" pick"init.zsh" atload'zpcompdef _pipenv pipenv' lucid
+zplugin ice wait"0" pick"init.zsh" lucid \
+atpull'!git reset --hard' atload"zpcompdef _pipenv pipenv"
 zplugin light https://github.com/laggardkernel/pipenv
 ```
 
