@@ -21,6 +21,7 @@ zstyle ':prezto:module:pipenv' auto-switch "no" # or "off"
 ```
 
 ## Installation
+
 ### [Prezto](https://github.com/sorin-ionescu/prezto)
 
 ```shell
@@ -34,26 +35,21 @@ Enabling command completion should be declared explicitly for zplugin. Zplugin d
 
 ```shell
 # pipenv plugin with hook + compdef
-zstyle ':prezto:module:pipenv' completion "yes"
 zplugin ice pick"init.zsh"
 zplugin light https://github.com/laggardkernel/pipenv
 ```
-
-Since the plugin uses `compdef` to define completion for `pipenv`, the configuration above should be put **before `compinit`** for zplugin.
 
 Another configuration for zplugin that takes advantage of **Turbo Mode** in zplugin:
 
 ```shell
 zstyle ':prezto:module:pipenv' full-startup "on"
 zplugin ice wait"0" pick"init.zsh" lucid \
-atpull'!git reset --hard' atload"zpcompdef _pipenv pipenv"
+atpull'!git reset --hard'
 zplugin light https://github.com/laggardkernel/pipenv
 ```
 
 **Notes** about turbo-loading completion:
-- Use `zpcompdef` to declare completion manually
-- `zstyle -t ':prezto:module:pipenv' completion "yes"` is not needed
-- `zpcompdef` must be used with and put before `zpcompinit` and `zpcdreplay`
+- zplugin handles completions in its own way, completions are not added into `$fpath`
 - More detail about turbo-loading completion is [here](https://github.com/zdharma/zplugin#calling-compinit)
 
 Update this plugin in zplugin with
@@ -71,7 +67,7 @@ zstyle ':prezto:module:pipenv' full-startup "yes" # or "on"
 
 **Note**: `full-startup` is invalid if `auto-switch` is disabled.
 
-An option to explicitly enable completion suggestion of `pipenv` command. This is ONLY designed for other zsh plugin manager which is not compatible with prezto module.
+An option to explicitly `compdef` completion suggestion of `pipenv` command. This is ONLY designed for other zsh plugin manager which is not compatible with prezto module.
 
 ```shell
 # invalid for prezto
