@@ -26,7 +26,7 @@ zstyle ':prezto:module:pipenv' auto-switch "no" # or "off"
 
 ```shell
 mkdir -p ${ZDOTDIR:-$HOME}/.zprezto/ >/dev/null 2>&1
-git clone git@github.com:laggardkernel/pipenv.git ${ZDOTDIR:-$HOME}/.zprezto/contrib/pipenv
+git clone git@github.com:laggardkernel/zsh-pipenv.git ${ZDOTDIR:-$HOME}/.zprezto/contrib/pipenv
 # enable 'pipenv' in `.zpreztorc`, put it before prezto module 'completion'
 ```
 
@@ -36,7 +36,7 @@ Enabling command completion should be declared explicitly for zplugin. Zplugin d
 ```shell
 # pipenv plugin with hook + compdef
 zplugin ice pick"init.zsh"
-zplugin light https://github.com/laggardkernel/pipenv
+zplugin light https://github.com/laggardkernel/zsh-pipenv
 ```
 
 Another configuration for zplugin that takes advantage of **Turbo Mode** in zplugin:
@@ -45,7 +45,7 @@ Another configuration for zplugin that takes advantage of **Turbo Mode** in zplu
 zstyle ':prezto:module:pipenv' full-startup "on"
 zplugin ice wait"0" pick"init.zsh" lucid \
 atpull'!git reset --hard'
-zplugin light https://github.com/laggardkernel/pipenv
+zplugin light https://github.com/laggardkernel/zsh-pipenv
 ```
 
 **Notes** about turbo-loading completion:
@@ -55,7 +55,7 @@ zplugin light https://github.com/laggardkernel/pipenv
 Update this plugin in zplugin with
 
 ```shell
-zplg update laggardkernel/pipenv
+zplg update laggardkernel/zsh-pipenv
 ```
 
 ### Additional Options
@@ -76,4 +76,4 @@ zstyle -t ':prezto:module:pipenv' completion "yes"
 
 ##
 ## Authors
-- [laggardkernel](https://github.com/laggardkernel/pipenv)
+- [laggardkernel](https://github.com/laggardkernel/zsh-pipenv)
