@@ -1,7 +1,11 @@
+The repo will be archived since I get a better solution.
+
+Using hooks to mess with `cd` is a stupid idea. Besides, using `pipenv --venv` and `pipenv shell` together causes `cd` command much slower, and gives you a perceptible delay. This may explain [why nvm chose not to support activating environment automatically](https://github.com/creationix/nvm/issues/110).
+
 # Pipenv
 A [Prezto](https://github.com/sorin-ionescu/prezto) module with features of pipenv support:
 - Enable virtual environment created by pipenv automatically when
-    1. directory is changed
+    1. directory is change
     2. a new shell window is opened
 - Command completion for pipenv
 - Switches, `zstyle` method used by Prezto, for cherry picking features here for yourself
